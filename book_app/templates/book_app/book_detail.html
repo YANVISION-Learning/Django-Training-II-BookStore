@@ -1,0 +1,64 @@
+{% extends 'main_app/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+    <section class="section bg-gray">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<!-- Left sidebar -->
+			<div class="col-md-8">
+				<div class="product-details">
+					<h1 class="product-title">Hp Dual Core 2gb Ram-Slim Laptop Available In Very Low Price</h1>
+
+					<!-- product slider -->
+					<div class="product-slider"><img class="img-fluid w-100"
+                                 src="{% if book.cover_thumbnail_big %}{{ book.cover_thumbnail_big.url }}{% endif %}"
+                                 alt="fghfd">
+					</div>
+					<!-- product slider -->
+
+
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar">
+					<div class="widget price text-center">
+						<h4>Price</h4>
+						<p>{{ book.price }} MAD</p>
+					</div>
+					<!-- User Profile widget -->
+					<div class="widget user text-center">
+						<img class="rounded-circle img-fluid mb-5 px-5" src="images/user/user-thumb.jpg" alt="">
+						<h4><a href="">{{ book.author.get_full_name }}</a></h4>
+						<p class="member-time">Publish date: {{ book.publication_date }}</p>
+						<a href="">See all author books</a>
+
+
+                        <form action="" method="POST">
+                            {% csrf_token %}
+
+                            <label for="{{ form.name.id_for_label }}" class="mt-3">Your name:</label>
+                            {% render_field form.name class="border p-3 w-100 my-2" %}
+                            <label for="{{ form.name.id_for_label }}" class="mt-3">Your Phone number:</label>
+                            {% render_field form.phone_number class="border p-3 w-100 my-2" %}
+                            <label for="{{ form.name.id_for_label }}" class="mt-3">Your Message:</label>
+                            {% render_field form.message class="border p-3 w-100 my-2" %}
+
+                            <button class="btn btn-primary" type="submit">
+                                Order my book
+                            </button>
+                        </form>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
+
+{% endblock content %}
